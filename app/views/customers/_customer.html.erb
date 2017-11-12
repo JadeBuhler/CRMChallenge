@@ -3,6 +3,12 @@
         <div class="customer">
             <h1><%=cust.FullName%></h1>
             <p><%=image_tag cust.Image%></p>
+            <% if cust.province.nil?%>
+                <p><span style="font-weight:bold">Province:</span> None</p>
+            <%else%>
+                <!--For some reason active admin will not display the provinces name in the foreign key column and I am unable to drill into province.name. I may have set up the relationship wrong but it looks correct tome.-->
+                <p><span style="font-weight:bold">Province:</span> <%=cust.province%></p>
+            <%end%>
             <p class="phoneNum"><%=cust.PhoneNumber%></p>
             <p class ="email"><%=cust.EmailAddress%></p>
         </div>
